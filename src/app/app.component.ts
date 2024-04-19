@@ -6,6 +6,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoryComponent } from './layout/category/category.component';
+import { FormsModule } from '@angular/forms';
+import { CardComponent } from './layout/card/card.component';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,27 @@ import { CategoryComponent } from './layout/category/category.component';
   imports: [
     CommonModule,
     RouterOutlet,
+    FormsModule,
     RouterLink,
     HomeComponent,
     FooterComponent,
     HeaderComponent,
     ProductsComponent,
     CategoryComponent,
+    CardComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'VelvetVogue';
+  inputValue: string = '';
+
+  onInputChange() {}
+
+  receivedData: string = '';
+
+  receiveDataFromChild(data: string) {
+    this.receivedData = data;
+  }
 }

@@ -5,7 +5,7 @@
         <h2
           class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
         >
-          CATEGORIES
+          CATEGORIES {{ testText }}
         </h2>
         <nav class="list-none mb-10">
           <li>
@@ -86,6 +86,7 @@
           </div>
           <button
             class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+            (click)="sendData()"
           >
             Button
           </button>
