@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ProductsComponent } from './products/products.component';
+import { CategoryComponent } from './layout/category/category.component';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,11 @@ import { ProductsComponent } from './products/products.component';
     FooterComponent,
     HeaderComponent,
     ProductsComponent,
+    CategoryComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ecomm';
+  title = 'VelvetVogue';
 }
