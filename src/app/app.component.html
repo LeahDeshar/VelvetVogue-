@@ -2,7 +2,7 @@
 <app-header></app-header>
 
 <div class="wrapper">
-  <div class="wrapper border-pink-300 border-2 flex flex-row">
+  <div class="wrapper flex flex-row mx-28">
     <app-card>
       <img
         card-image
@@ -36,6 +36,12 @@
       <h2 class="title-font text-lg font-medium" card-title>Title 2</h2>
       <p card-price>$ 12.0</p>
     </app-card>
+  </div>
+
+  <div>
+    <div *ngFor="let item of data">
+      <p>{{ item.title }}</p>
+    </div>
   </div>
   <section class="bg-white dark:bg-gray-900">
     <div class="max-w-3xl px-6 py-16 mx-auto text-center">
