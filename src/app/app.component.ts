@@ -68,17 +68,6 @@ export class AppComponent implements OnInit {
       this.clothes = data.items;
       console.log('clothes', this.clothes);
     });
-
-    // subscribe(
-    //   (data) => {
-    //     this.clothes = data;
-    //     console.log('clothes', this.clothes);
-    //   },
-    //   (error) => {
-    //     // Handle error if necessary
-    //     console.error('Error fetching clothes:', error);
-    //   }
-    // );
   }
   onInputChange() {}
 
