@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { CardComponent } from './layout/card/card.component';
 import { TodoService } from './services/todo.service';
 import { ClothesService } from './services/clothes.service';
+import { AuthComponent } from './user/auth/auth.component';
 interface Clothes {
   id: number;
   name: string;
@@ -33,6 +34,7 @@ export interface ClothesResponse {
     FormsModule,
     RouterLink,
     HomeComponent,
+    AuthComponent,
     FooterComponent,
     HeaderComponent,
     ProductsComponent,
