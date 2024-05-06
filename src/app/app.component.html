@@ -2,42 +2,6 @@
 <app-header></app-header>
 
 <div class="wrapper">
-  <!-- <div class="wrapper flex flex-row mx-28">
-    <app-card>
-      <img
-        card-image
-        alt="ecommerce"
-        class="object-cover object-center w-full h-full block"
-        src="https://dummyimage.com/420x260"
-      />
-      <h3
-        card-category
-        class="text-gray-500 text-xs tracking-widest title-font mb-1"
-      >
-        Category 1
-      </h3>
-      <h2 class="title-font text-lg font-medium" card-title>Title 1</h2>
-      <p card-price>$ 13.00</p>
-    </app-card>
-
-    <app-card>
-      <img
-        card-image
-        alt="ecommerce"
-        class="object-cover object-center w-full h-full block"
-        src="https://dummyimage.com/420x260"
-      />
-      <h3
-        card-category
-        class="text-gray-500 text-xs tracking-widest title-font mb-1"
-      >
-        Category 2
-      </h3>
-      <h2 class="title-font text-lg font-medium" card-title>Title 2</h2>
-      <p card-price>$ 12.0</p>
-    </app-card>
-  </div> -->
-
   <div class="wrapper flex flex-row flex-wrap gap-4 mx-28">
     <div *ngFor="let item of clothes">
       <app-card>
