@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class AuthComponent {
   Username: string = '';
 
-  // onInputChange(inputElement: HTMLInputElement) {
-  //   this.Username = inputElement.value;
-  //   console.log(this.Username);
-  // }
+  onInputChange(inputElement: HTMLInputElement) {
+    this.Username = inputElement.value;
+    console.log(this.Username);
+  }
 }
