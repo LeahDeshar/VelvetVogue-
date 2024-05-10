@@ -3,7 +3,11 @@ import { FormsModule } from '@angular/forms';
 class User {
   name: string = '';
   email: string = '';
-  age: number = 1;
+  image: string = '';
+  phnumber: string = '';
+  address: string = '';
+  password: string = '';
+  confirmPass: string = '';
 }
 @Component({
   selector: 'app-auth',
@@ -13,12 +17,12 @@ class User {
   styleUrl: './auth.component.css',
 })
 export class AuthComponent {
-  Username: string = '';
+  // Username: string = '';
 
-  onInputChange(inputElement: HTMLInputElement) {
-    this.Username = inputElement.value;
-    console.log(this.Username);
-  }
+  // onInputChange(inputElement: HTMLInputElement) {
+  //   this.Username = inputElement.value;
+  //   console.log(this.Username);
+  // }
 
   user: User = new User();
 
