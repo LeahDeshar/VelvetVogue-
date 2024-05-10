@@ -34,6 +34,6 @@ export class AuthComponent {
   }
   onSubmitLogin() {
     console.log('Login');
-    console.log(this.user);
+    console.log(this.login);
   }
 }
