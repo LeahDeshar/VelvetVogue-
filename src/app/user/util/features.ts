@@ -12,7 +12,7 @@ export class Login {
 export class Register {
   name: string;
   email: string;
-  image?: File;
+  image: File | null;
   phnumber: string;
   address: string;
   password: string;
@@ -21,7 +21,7 @@ export class Register {
   constructor() {
     this.name = '';
     this.email = '';
-    this.image;
+    this.image = null;
 
     this.phnumber = '';
     this.address = '';

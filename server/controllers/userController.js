@@ -5,10 +5,10 @@ import cloudinary from "cloudinary";
 export const registerController = async (req, res) => {
   try {
     console.log(req.body);
-    // return res.status(200).json({
-    //   msg: req.body,
-    //   success: true,
-    // });
+    return res.status(200).json({
+      msg: req.body,
+      success: true,
+    });
 
     // const {name,email,password,address,city,country,phone,answer} = req.body;
 
