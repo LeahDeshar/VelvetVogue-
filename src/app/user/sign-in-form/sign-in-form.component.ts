@@ -1,17 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-export class Login {
-  email: string = '';
-
-  password: string = '';
-
-  constructor() {
-    this.email = '';
-    this.password = '';
-  }
-}
+import { Login } from '../util/features';
 
 @Component({
   selector: 'app-sign-in-form',

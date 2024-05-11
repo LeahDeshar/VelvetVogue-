@@ -1,27 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-export class Register {
-  name: string;
-  email: string;
-  image?: File;
-  phnumber: string;
-  address: string;
-  password: string;
-  confirmPass: string;
-
-  constructor() {
-    this.name = '';
-    this.email = '';
-    this.image;
-
-    this.phnumber = '';
-    this.address = '';
-    this.password = '';
-    this.confirmPass = '';
-  }
-}
+import { Register } from '../util/features';
+import { AuthserviceService } from '../userservice/authservice.service';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -32,6 +13,8 @@ export class Register {
 })
 export class SignUpFormComponent {
   user: Register = new Register();
+  constructor(private authService: AuthserviceService) {}
+
   onSubmitRegister() {
     console.log(this.user);
   }
@@ -39,5 +22,16 @@ export class SignUpFormComponent {
     this.user.image = event.target.files[0];
     // Do something with the selected file
     console.log('Selected file:', this.user.image);
+  }
+
+  register(user: Register) {
+    this.authService.register(user).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

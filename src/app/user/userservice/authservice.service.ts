@@ -1,10 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Register, Login } from '../util/features';
+import { Observable, catchError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthserviceService {
-  constructor() {}
+  private baseUrl = 'http://localhost:8080/api/v1/user';
+  constructor(private http: HttpClient) {}
 
   // Check if the user is authenticated
   isAuthenticated(): boolean {
@@ -23,12 +26,22 @@ export class AuthserviceService {
   }
 
   // login
-  login(data: any) {
-    localStorage.setItem('token', data.token);
+  login(data: Login): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, data).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
+    // localStorage.setItem('token', data.token);
   }
 
   // register
-  register(data: any) {
-    localStorage.setItem('token', data.token);
+  register(data: Register): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, data).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
+    // localStorage.setItem('token', data.token);
   }
 }
