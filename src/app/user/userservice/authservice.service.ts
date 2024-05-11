@@ -26,17 +26,18 @@ export class AuthserviceService {
   }
 
   // login
-  login(data: Login): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, data).pipe(
-      catchError((error) => {
-        throw error;
-      })
-    );
-    // localStorage.setItem('token', data.token);
-  }
+  // login(data: Login): Observable<any> {
+  //   return this.http.post(`${this.baseUrl}/login`, data).pipe(
+  //     catchError((error) => {
+  //       throw error;
+  //     })
+  //   );
+  //   // localStorage.setItem('token', data.token);
+  // }
 
   // register
   register(data: Register): Observable<any> {
+    console.log(data);
     return this.http.post(`${this.baseUrl}/register`, data).pipe(
       catchError((error) => {
         throw error;

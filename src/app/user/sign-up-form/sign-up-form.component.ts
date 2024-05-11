@@ -15,23 +15,27 @@ export class SignUpFormComponent {
   user: Register = new Register();
   constructor(private authService: AuthserviceService) {}
 
-  onSubmitRegister() {
-    console.log(this.user);
-  }
+  // onSubmitRegister() {
+  //   console.log(this.user);
+  // }
   onFileSelected(event: any) {
     this.user.image = event.target.files[0];
     // Do something with the selected file
     console.log('Selected file:', this.user.image);
   }
 
-  register(user: Register) {
-    this.authService.register(user).subscribe(
-      (data) => {
+  onSubmitRegister() {
+    console.log(this.user);
+    this.authService.register(this.user).subscribe({
+      next: (data) => {
         console.log(data);
       },
-      (error) => {
-        console.log(error);
-      }
-    );
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.info('Request completed');
+      },
+    });
   }
 }

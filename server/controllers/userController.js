@@ -4,10 +4,11 @@ import cloudinary from "cloudinary";
 
 export const registerController = async (req, res) => {
   try {
-    return res.status(200).json({
-      msg: req.body,
-      success: true,
-    });
+    console.log(req.body);
+    // return res.status(200).json({
+    //   msg: req.body,
+    //   success: true,
+    // });
 
     // const {name,email,password,address,city,country,phone,answer} = req.body;
 
@@ -67,68 +68,68 @@ export const registerController = async (req, res) => {
   }
 };
 
-export const loginController = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    // login validation
-    if (!email || !password) {
-      return res.status(400).json({
-        msg: "Fill all the fields",
-        success: false,
-      });
-    }
-    // check if email exist
-    let user = await Users.findOne({ email });
-    if (!user) {
-      return res.status(400).json({
-        msg: "Email does not exist",
-        success: false,
-      });
-    }
-    // check if password is correct
-    const isMatch = await user.isValidPassword(password);
-    if (!isMatch) {
-      return res.status(400).json({
-        msg: "Incorrect password",
-        success: false,
-      });
-    }
-    // // create token
-    // const token = await user.generateToken()
-    // if(!token){
-    //     return res
-    //        .status(400)
-    //        .json({
-    //         msg: "Something went wrong",
-    //         success: false,
-    //     })
-    // }
-    // send response
-    // token
-    const token = user.generateJWT();
-    return res
-      .status(200)
-      .cookie("token", token, {
-        httpOnly: process.env.NODE_ENV === "development" ? true : false,
-        secure: process.env.NODE_ENV === "development" ? true : false,
-        sameSite: process.env.NODE_ENV === "development" ? true : false,
-        expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
-      })
-      .json({
-        msg: "Login successfully",
-        success: true,
-        user,
-        token,
-      });
-  } catch (error) {
-    console.log(error);
-    return res.status(400).json({
-      msg: "Internal Error (login)",
-      success: false,
-      error,
-    });
-  }
-};
+// export const loginController = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+//     // login validation
+//     if (!email || !password) {
+//       return res.status(400).json({
+//         msg: "Fill all the fields",
+//         success: false,
+//       });
+//     }
+//     // check if email exist
+//     let user = await Users.findOne({ email });
+//     if (!user) {
+//       return res.status(400).json({
+//         msg: "Email does not exist",
+//         success: false,
+//       });
+//     }
+//     // check if password is correct
+//     const isMatch = await user.isValidPassword(password);
+//     if (!isMatch) {
+//       return res.status(400).json({
+//         msg: "Incorrect password",
+//         success: false,
+//       });
+//     }
+//     // // create token
+//     // const token = await user.generateToken()
+//     // if(!token){
+//     //     return res
+//     //        .status(400)
+//     //        .json({
+//     //         msg: "Something went wrong",
+//     //         success: false,
+//     //     })
+//     // }
+//     // send response
+//     // token
+//     const token = user.generateJWT();
+//     return res
+//       .status(200)
+//       .cookie("token", token, {
+//         httpOnly: process.env.NODE_ENV === "development" ? true : false,
+//         secure: process.env.NODE_ENV === "development" ? true : false,
+//         sameSite: process.env.NODE_ENV === "development" ? true : false,
+//         expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
+//       })
+//       .json({
+//         msg: "Login successfully",
+//         success: true,
+//         user,
+//         token,
+//       });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(400).json({
+//       msg: "Internal Error (login)",
+//       success: false,
+//       error,
+//     });
+//   }
+// };
 export const getUserProfileController = async (req, res) => {
   try {
     const user = await Users.findById(req.user._id).select("-password");
