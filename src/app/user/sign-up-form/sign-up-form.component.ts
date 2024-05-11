@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 export class Register {
   name: string;
   email: string;
-  image: string;
+  image?: File;
   phnumber: string;
   address: string;
   password: string;
@@ -14,7 +14,8 @@ export class Register {
   constructor() {
     this.name = '';
     this.email = '';
-    this.image = 'Profile Upload';
+    this.image;
+
     this.phnumber = '';
     this.address = '';
     this.password = '';
@@ -33,5 +34,10 @@ export class SignUpFormComponent {
   user: Register = new Register();
   onSubmitRegister() {
     console.log(this.user);
+  }
+  onFileSelected(event: any) {
+    this.user.image = event.target.files[0];
+    // Do something with the selected file
+    console.log('Selected file:', this.user.image);
   }
 }

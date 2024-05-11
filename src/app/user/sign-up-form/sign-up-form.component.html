@@ -45,13 +45,13 @@
       />
     </svg>
 
-    <h2 class="mx-3 text-gray-400">{{ user.image }}</h2>
+    <h2 class="mx-3 text-gray-400">{{ user.image?.name }}</h2>
 
     <input
       id="dropzone-file"
       type="file"
+      (change)="onFileSelected($event)"
       class="hidden"
-      [(ngModel)]="user.image"
       name="image"
       required
     />
