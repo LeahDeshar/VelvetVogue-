@@ -1,20 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-class Register {
-  name: string = '';
-  email: string = '';
-  image: string = 'Profile Upload';
-  phnumber: string = '';
-  address: string = '';
-  password: string = '';
-  confirmPass: string = '';
+export class Register {
+  name: string;
+  email: string;
+  image: string;
+  phnumber: string;
+  address: string;
+  password: string;
+  confirmPass: string;
+
+  constructor() {
+    this.name = '';
+    this.email = '';
+    this.image = 'Profile Upload';
+    this.phnumber = '';
+    this.address = '';
+    this.password = '';
+    this.confirmPass = '';
+  }
 }
 
-class Login {
+export class Login {
   email: string = '';
 
   password: string = '';
+
+  constructor() {
+    this.email = '';
+    this.password = '';
+  }
 }
 @Component({
   selector: 'app-auth',
