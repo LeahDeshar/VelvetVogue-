@@ -10,54 +10,54 @@ export const registerController = async (req, res) => {
       success: true,
     });
 
-    // const {name,email,password,address,city,country,phone,answer} = req.body;
+    const {name,email,password,address,city,country,phone,answer} = req.body;
 
-    // if(!name || !email || !password || !address || !city || !country || !phone || !answer){
-    //     return res
-    //        .status(400)
-    //        .json({
-    //         msg: "Fill all the fields",
-    //         success: false,
-    //     })
-    // }
+    if(!name || !email || !password || !address || !city || !country || !phone || !answer){
+        return res
+           .status(400)
+           .json({
+            msg: "Fill all the fields",
+            success: false,
+        })
+    }
 
-    // const findEmail = await Users.findOne({email: email})
-    // if(findEmail)
-    // {
-    //     return res
-    //        .status(400)
-    //        .json({
-    //         msg: "Email already exist",
-    //         success: false,
-    //     })
-    // }
+    const findEmail = await Users.findOne({email: email})
+    if(findEmail)
+    {
+        return res
+           .status(400)
+           .json({
+            msg: "Email already exist",
+            success: false,
+        })
+    }
 
-    // const user = await Users.create({
-    //     name,
-    //     email,
-    //     password,
-    //     address,
-    //     city,
-    //     country,
-    //     phone
-    // })
-    // if (!user)
-    // {
-    //     return res
-    //        .status(400)
-    //        .json({
-    //         msg: "Something went wrong",
-    //         success: false,
-    //     })
-    // }
+    const user = await Users.create({
+        name,
+        email,
+        password,
+        address,
+        city,
+        country,
+        phone
+    })
+    if (!user)
+    {
+        return res
+           .status(400)
+           .json({
+            msg: "Something went wrong",
+            success: false,
+        })
+    }
 
-    // return res
-    //         .status(200)
-    //         .json({
-    //             msg: "User created successfully",
-    //             success: true,
-    //             user
-    //         })
+    return res
+            .status(200)
+            .json({
+                msg: "User created successfully",
+                success: true,
+                user
+            })
   } catch (error) {
     console.log(error);
     return res.status(400).json({
